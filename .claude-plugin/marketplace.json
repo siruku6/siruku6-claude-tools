@@ -7,7 +7,7 @@
         {
             "name": "dev-plugin",
             "source": "./plugins/dev-plugin",
-            "description": "開発作業で汎用的に用いる予定の Skill・Agent・Hooks などを入れる",
+            "description": "開発作業で汎用的に用いる予定の Skill・Agent・Hooks などを入れる"
         }
     ]
 }
