@@ -1,5 +1,5 @@
 {
-    "name": "common-dev-plugin",
+    "name": "dev-plugin",
     "description": "開発作業で汎用的に用いる予定の Skill・Agent・Hooks などを入れる",
     "version": "1.0.0",
     "author": {
