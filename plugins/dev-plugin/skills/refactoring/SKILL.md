@@ -14,7 +14,7 @@ triggers:
   - import 構造
 ---
 
-# tampura_environments リファクタリング ガイド
+# モジュール分割・リファクタリング ガイド
 
 ## このスキルを読む前に
 
@@ -87,12 +87,11 @@ triggers:
     collision.py と同じファイルか、その直接の依存先に置く方が自然
 ```
 
-### この設計文書を先に読む
+### 対象プロジェクトの設計文書を先に読む
 
-グルーピング判断の詳細は設計文書に記録されている。必ず先に読む：
-
-- [docs/design/pb_utils_design.md](../../design/pb_utils_design.md) — 責任グループ A〜O の分類
-- [docs/design/refactoring_overview.md](../../design/refactoring_overview.md) — Phase 計画
+対象プロジェクトに、今回の分割方針を記録した設計文書（`docs/design/` 配下など）が
+存在する場合は、グルーピング判断を始める前に必ず読む。存在しない場合は、
+作業前にユーザーへ設計方針を確認する（鉄則2）。
 
 ---
 
@@ -170,6 +169,9 @@ from .body import get_num_joints, get_joints, get_links, get_all_links
 
 **検証の流れ**（この順で行う）：
 
+以下は tampura_environments での具体例。モジュール名・パス（`tampura_environments`・
+`panda_utils`・`pb_utils`・`pbu` など）は対象プロジェクトのものに置き換えて実行する。
+
 ```bash
 # Step 1: import が通るか
 python3 -c "from tampura_environments.panda_utils import pb_utils; print('OK')"
@@ -227,7 +229,7 @@ for mod in ['tampura_environments.panda_utils.robot',
 
 リファクタリング作業を開始する前に確認する：
 
-- [ ] 設計文書（`docs/design/`）を読んだ
+- [ ] 対象プロジェクトに設計文書（`docs/design/` 配下など）があれば読んだ
 - [ ] ユーザーと分割方針の合意を得た
 - [ ] 1ファイルごとに実装・確認・ユーザーへの報告を行う計画にした
 
